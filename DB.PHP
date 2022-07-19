@@ -25,4 +25,5 @@ function sqlite_fetch_array(&$result,$type)
     return $resx;
 }
 echo('111');
+$handle = new SQLite3('db.db3');
 ?>
