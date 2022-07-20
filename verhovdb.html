@@ -1,0 +1,43 @@
+<html>
+
+<head>
+  <title>Работа с базой данных</title>
+</head>
+
+<body>
+
+<form name="form1" action="verhovdb.php?act=insert" method="post">
+<h4>Добавление записи</h4><br>
+
+
+ <input type="submit" value="Добавить">
+</form>
+<hr>
+<form name="form2" action="verhovdb.php?act=listall" method="post">
+<h4>Вывод всех записей</h4><br>
+
+ <input type="submit" value="Вывести все">
+</form>
+
+<hr>
+<h4>Вывод записей по условию:</h4><br>
+<form name="form3" action="verhovdb.php?act=zapros&s=naz" method="post">
+Вывести информацию о журналах с заданным названием<br><br>
+Название:<input type=text name='p1'>
+
+ <input type="submit" value="Вывести">
+</form>
+
+
+<form name="form4" action="verhovdb.php?act=zapros&s=list" method="post">
+Вывести информацию о журналах, число страниц в которых
+лежит в заданном диапазоне.<br><br>
+начало:<input type=text name='p1'><br>
+конец:<input type=text name='p2'>
+ <input type="submit" value="Вывести">
+</form>
+
+
+</body>
+
+</html>
