@@ -1,8 +1,9 @@
 <?php
-$act=$_GET['act'];
-$step=$_GET['s'];
-$p1=$_POST['p1'];
-$p2=$_POST['p2'];
+ if(isset($_GET['act']))$act=$_GET['act'];
+ if(isset($_GET['s']))$step=$_GET['s'];
+ if(isset($_POST['p1']))$p1=$_POST['p1'];
+ if(isset($_POST['p2']))$p2=$_POST['p2'];
+ if(isset($_POST['naz']))$naz=$_POST['naz'];
 
 $db = new SQLite3('verhov.db');
 
@@ -34,14 +35,18 @@ switch ($act) {
         break;
     case "zapros":
         switch ($step){         case "naz":
+          $results = $db->query("select * from zg where name='$naz'");
+
           break;
          case "list":
+          $results = $db->query("select * from zg where list between $p1 and $p2");
+
           break;
         }
-        echo "i это пирог";
+        echo "zapros";
         break;
     case "insert":
-        echo "i это пирог";
+        echo "insert";
         break;
 }
 
