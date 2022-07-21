@@ -1,0 +1,58 @@
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <title>Заголовок</title>
+    <link rel="stylesheet" href="style.css"  type="text/css" />
+</head>
+
+<body>
+
+<center>
+
+<h1>Java Script Верхов</h1>
+</center><br><br>
+<div>
+<button  id="start">Запустить</button>
+<button  id="stop">Остановить</button>
+<script src="https://snipp.ru/cdn/jquery/2.1.1/jquery.min.js"></script>
+<script>
+var timer;
+var start_title = parent.document.title;
+
+$('#start').click(function(){
+	for (i = 0; i < 5; i++) {
+		parent.document.title = parent.document.title + ' | ' + start_title;
+	}
+
+	timer = setInterval(function(){
+		lenta = parent.document.title;
+		if (lenta.length == 100){
+			lenta = lenta + ' | ' + start_title;
+		}
+		parent.document.title = lenta.substr(1, lenta.length);
+	}, 100);
+});
+
+$('#stop').click(function(){
+	clearInterval(timer);
+	parent.document.title = start_title;
+});
+</script>
+
+
+</div>
+
+
+
+
+<br><br>
+<center>
+</center>
+
+
+
+
+</body>
+
+</html>

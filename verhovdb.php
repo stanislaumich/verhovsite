@@ -1,4 +1,6 @@
 <?php
+ $p1=-1;
+ $p2=-1;
  if(isset($_GET['act']))$act=$_GET['act'];
  if(isset($_GET['s']))$step=$_GET['s'];
  if(isset($_POST['p1']))$p1=$_POST['p1'];
@@ -43,18 +45,49 @@ switch ($act) {
         break;
     case "zapros":
         switch ($step){         case "naz":
+         if($naz=='' ){
+          	 echo "Непорядок с названием, выводим все записи ";
+          	 $results = $db->query("select * from zg where 1=1");
+          }
+          else {
           $results = $db->query("select * from zg where name='$naz'");
-
+          }
           break;
          case "list":
-          $results = $db->query("select * from zg where list between $p1 and $p2");
-
+          if($p1=='' || $p2=='' ){
+          	 echo "Непорядок со страницами, выводим все записи ";
+          }
+          else {
+          echo "Страницы от: ".$p1." и до: ".$p2;
+          $results = $db->query("select * from zg where list between  $p1 and $p2");
+          }
           break;
         }
-        echo "zapros";
+                $p="<table border=1><caption>Записи о журналах:</caption><tbody>";
+          $p.="<tr><th>Название</th><th>Страниц</th><th>Год</th><th>Номер</th><th>Цена</th><th>Обложка</th><th>Издательство</th></tr>";
+			while($r = $results->fetchArray()){
+				$p.="<tr>";
+				$p.= "<td>".$r['name']."</td>";
+                $p.= "<td>".$r['list']."</td>";
+ 				$p.= "<td>".$r['god']."</td>";
+ 				$p.= "<td>".$r['nomer']."</td>";
+ 				$p.= "<td>".$r['cena']."</td>";
+ 				$p.= "<td><a href='".$r['obloz']."' target=_blank><img src='".$r['obloz']."' width=100></a></td>";
+ 				$p.= "<td>".$r['izd']."</td>";
+				$p.="</tr>";
+				}
+		$p.="</tbody></table>";
+		echo $p;
+
         break;
     case "insert":
-        echo "insert";
+        if($name=='' || $list==''||$god==''||$nomer==''||$cena==''||$obloz==''||$izd==''){
+         echo "Заполниите все поля!!";
+        }
+        else{
+         $z="insert into zg(name,list,god,nomer,cena,obloz,izd) values('$name','$list','$god','$nomer','$cena','$obloz','$izd')";
+        $results = $db->query($z);
+        echo "Запись вставлена";        }
         break;
 }
 
