@@ -13,25 +13,36 @@
 <h1>Java Script Верхов</h1>
 </center><br><br>
 <div>
+Работа с заголовком, через 6 секунд после нажатия запуска меняем<br>
+заголовок на фамилию и затем до нажатия кнопки стоп<br>
+переключаем с интервалом в 2 секунды<br>
 <button  id="start">Запустить</button>
 <button  id="stop">Остановить</button>
 <script src="jquer.js"></script>
 <script>
+function sleep(milliseconds) {
+  const date = Date.now();
+  let currentDate = null;
+  do {
+    currentDate = Date.now();
+  } while (currentDate - date < milliseconds);
+}
 var timer;
-var start_title = parent.document.title;
-
-$('#start').click(function(){
-	for (i = 0; i < 5; i++) {
-		parent.document.title = parent.document.title + ' | ' + start_title;
-	}
-
+var i;
+i = true;
+$('#start').click(function(){	sleep(6000);
+	parent.document.title = 'Верхов';
 	timer = setInterval(function(){
-		lenta = parent.document.title;
-		if (lenta.length == 100){
-			lenta = lenta + ' | ' + start_title;
+		if (i==true){
+		 parent.document.title = 'Заголовок';
+		 i = false;
 		}
-		parent.document.title = lenta.substr(1, lenta.length);
-	}, 100);
+		else{
+		 i = true;
+		 parent.document.title = 'Верхов';
+		 //sleep(2000);
+		}
+	}, 2000);
 });
 
 $('#stop').click(function(){
@@ -39,20 +50,50 @@ $('#stop').click(function(){
 	parent.document.title = start_title;
 });
 </script>
-
-
 </div>
-
-
-
+<br><br>
+<hr>
+Работа со списком, смена фона по клику на элемент
+<script>
+$(function() {
+    $('ul#col li').click( function() {
+        document.body.style.background = $(this).attr('value');
+    });
+});
+</script>
+</script>
+<ul id="col">
+  <li name='red' value='red'> red  </li>
+  <li name='green' value='green'> green  </li>
+  <li name='blue' value='blue'> blue  </li>
+  <li name='yellow' value='yellow'> yellow  </li>
+</ul>
 
 <br><br>
-<center>
-</center>
+<hr>
+Проверка знания таблицы истинности логического элемента. ⎤А ∨ B Переключатель ЩЛК <br><br>
 
 
 
+<input id="r11" name="r1" type="radio" value="false"> Проверить<br><br>
 
+<input id = 'ca' type="checkbox" id=”a”>A<br>
+<input id = 'cb' type="checkbox" id=”b”>B<br>
+
+<script>
+ $("#r11").click(function(){ var c1;
+ var c2;
+ c1=document.getElementById('ca');
+ c2=document.getElementById('cb');
+ res = !c1.checked || c2.checked;
+
+if (res) {
+		alert('Верно');
+	}
+	else
+	{	    alert('Неверно');
+	}
+});
+</script>
 </body>
-
 </html>
