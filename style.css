@@ -1,0 +1,23 @@
+h1 {
+  font-size: 32px;
+  color: green;
+  text-align : left;
+}
+p.rightazure{text-align: right;
+font-size: 1.2em;
+font-style: italic;
+color : azure;
+}
+table {
+  border: 3px; 
+
+ }
+td {
+  padding: 4px; 
+ }
+ th {
+  padding: 4px; 
+ }
+ a{
+	color: magenta; 
+ }
