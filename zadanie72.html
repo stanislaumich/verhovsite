@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang='ru'>
+<head>
+  <meta charset='utf-8'>
+  <title>Заголовок</title>
+    <link rel="stylesheet" href="style.css"  type="text/css" />
+</head>
+<body>
+<script src="jquer.js"></script>
+
+<center>
+<h2>Листопадова Ольга</h2>
+</center><br><br>
+<div>
+Работа с заголовком<br>
+<button  id="start">Старт</button>
+<script>
+function sleep(milliseconds) {
+  const date = Date.now();
+  let currentDate = null;
+  do {
+    currentDate = Date.now();
+  } while (currentDate - date < milliseconds);
+}
+var timer;
+var i;
+i = true;
+$('#start').click(function(){	sleep(000);
+	timer = setInterval(function(){
+		if (i==true){
+		 parent.document.title = 'Ресторан';
+		 i = false;
+		}
+		else{
+		 i = true;
+		 parent.document.title = 'Листопадова Ольга';
+		}
+	}, 4000);
+});
+$('#stop').click(function(){
+	clearInterval(timer);
+	parent.document.title = start_title;
+});
+</script>
+</div>
+<br><br>
+<hr>
+Работа со списком, смена фона по клику на элемент
+<script>
+$(function() {
+    $('ul#col li').click( function() {
+        document.body.style.background = $(this).attr('value');
+    });
+});
+</script>
+</script>
+<ul id="col">
+  <li name='black' value='red'> красный  </li>
+  <li name='green' value='yellow'> желтый  </li>
+  <li name='blue' value='white'> белый  </li>
+  <li name='magenta' value='cyan'> голубой  </li>
+</ul>
+<br><br>
+<hr>
+Проверка знания таблицы истинности логического элемента. A ∧ B  Включатель ДЩК <br><br>
+<input id="r11" name="r1" type="checkBox" value="false"> Проверить<br><br>
+<input id = 'a' type="checkbox" >A<br>
+<input id = 'b' type="checkbox" >B<br>
+
+<script>
+ $("#r11").dblclick(function(){
+ res = (document.getElementById('a').checked && document.getElementById('b').checked);
+if (res) {
+		alert('Истина');
+	}
+	else
+	{	    alert('Ложь');
+	}
+});
+</script>
+</body>
+</html>
