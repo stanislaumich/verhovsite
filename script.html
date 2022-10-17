@@ -9,10 +9,10 @@
 <script src="jquer.js"></script>
 
 <center>
-<h2>Листопадова Ольга</h2>
+<h2>Дудкин Иван Алексеевич</h2>
 </center><br><br>
 <div>
-Работа с заголовком<br>
+Скрипт для заголовка<br>
 <button  id="start">Старт</button>
 <script>
 function sleep(milliseconds) {
@@ -25,17 +25,17 @@ function sleep(milliseconds) {
 var timer;
 var i;
 i = true;
-$('#start').click(function(){	sleep(000);
+$('#start').click(function(){	sleep(2000);
 	timer = setInterval(function(){
 		if (i==true){
-		 parent.document.title = 'Ресторан';
+		 parent.document.title = 'Дудкин Иван Алексеевич';
 		 i = false;
 		}
 		else{
 		 i = true;
-		 parent.document.title = 'Листопадова Ольга';
+		 parent.document.title = 'Заголовок';
 		}
-	}, 4000);
+	}, 3000);
 });
 $('#stop').click(function(){
 	clearInterval(timer);
@@ -55,20 +55,20 @@ $(function() {
 </script>
 </script>
 <ul id="col">
-  <li name='black' value='red'> красный  </li>
-  <li name='green' value='yellow'> желтый  </li>
-  <li name='blue' value='white'> белый  </li>
-  <li name='magenta' value='cyan'> голубой  </li>
+  <li name='black' value='white'> белый  </li>
+  <li name='green' value='blue'> синий  </li>
+  <li name='blue' value='black'> черный  </li>
+  <li name='magenta' value='green'> зеленый  </li>
 </ul>
 <br><br>
 <hr>
-Проверка знания таблицы истинности логического элемента. A ∧ B  Включатель ДЩК <br><br>
-<input id="r11" name="r1" type="checkBox" value="false"> Проверить<br><br>
+Проверка знания таблицы истинности логического элемента. A ∧ B  кнопка ЩЛК <br><br>
+<input id="r11" name="r1" type="Button" value="Проверить"><br><br>
 <input id = 'a' type="checkbox" >A<br>
 <input id = 'b' type="checkbox" >B<br>
 
 <script>
- $("#r11").dblclick(function(){
+ $("#r11").click(function(){
  res = (document.getElementById('a').checked && document.getElementById('b').checked);
 if (res) {
 		alert('Истина');

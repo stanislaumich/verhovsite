@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang='ru'>
+<head>
+  <title>База данных квартир Дудкин</title>
+</head>
+<body>
+<hr>
+<form name="form1" action="kvartira.php?act=insert" method="post">
+<h4>Добавление квартиры в базу данных</h4>
+
+<label for="s">Район:</label>
+<select id="s" name="raon">
+  <option value="Ленинский">Ленинский</option>
+  <option value="Первомайский">Первомайский</option>
+  <option value="Московский">Московский</option>
+  <option value="Центральный">Центральный</option>
+</select><br>
+Этаж:    <input type=text name='etag'><br>
+Площадь:    <input type=text name='square'><br>
+Кол-во комнат:    <input type=text name='room'><br>
+Владелец:    <input type=text name='vladelec'><br>
+Цена:    <input type=text name='price'><br>
+ <input type="submit" value="Добавить">
+</form>
+
+<form name="form2" action="kvartira.php?act=listall" method="post">
+<h4>Вывод всех записей о квартирах</h4>
+ <input type="submit" value="Вывести все"></form>
+
+<h4>Вывод квартир по условию:</h4>
+<form name="form3" action="kvartira.php?act=zapros&s=g" method="post">
+вывести информацию о квартирах, расположенных на заданном этаже:<br><br>
+Этаж:<input type=text name='g'>
+ <input type="submit" value="Вывести">
+ </form>
+ <br>
+<form name="form4" action="kvartira.php?act=zapros&s=list" method="post">
+вывести информацию о квартирах, имеющих площадь из указанного интервала:
+<br><br>
+Площадь от:<input type=text name='b1'><br>
+Площадь до:&nbsp;<input type=text name='b2'><br>
+ <input type="submit" value="Вывести">
+</form>
+</body>
+</html>
